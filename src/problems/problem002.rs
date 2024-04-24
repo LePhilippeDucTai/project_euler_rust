@@ -30,8 +30,7 @@ fn fibonacci_iterator() -> Fibonacci {
 }
 
 pub fn run() {
-    let result: i128 = fibonacci(20);
-    println!("{}", result);
+    let _result: i128 = fibonacci(20);
 
     const LIMIT: i128 = 4000000;
     let iterator: Fibonacci = fibonacci_iterator();
@@ -40,5 +39,5 @@ pub fn run() {
         .take_while(|x: &i128| *x < LIMIT)
         .sum();
 
-    println!("{:?}", result2)
+    println!("Solution of Problem 2 is : {:?}", result2)
 }
