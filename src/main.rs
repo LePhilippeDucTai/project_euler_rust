@@ -1,3 +1,5 @@
+pub mod problems;
+
 fn main() {
-    println!("Hello, world!");
+    problems::problem001::run();
 }
