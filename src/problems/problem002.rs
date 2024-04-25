@@ -29,13 +29,17 @@ fn fibonacci_iterator() -> Fibonacci {
     Fibonacci { curr: 0, next: 1 }
 }
 
+fn is_even(x: &i128) -> bool {
+    x % 2 == 0
+}
+
 pub fn run() {
     let _result: i128 = fibonacci(20);
 
     const LIMIT: i128 = 4000000;
     let iterator: Fibonacci = fibonacci_iterator();
     let result2: i128 = iterator
-        .filter(|x: &i128| x % 2 == 1)
+        .filter(is_even)
         .take_while(|x: &i128| *x < LIMIT)
         .sum();
 
