@@ -27,14 +27,17 @@ fn is_palindromic(arr: Vec<i32>) -> bool {
 
 fn solve(n_digits: u32) -> i32 {
     let tens = (10 as i32).pow(n_digits - 1);
-    let limit = tens * 10 - 1;
+    let limit = tens * 10;
     let ranges = tens..limit;
-    0
+    let solution = itertools::iproduct!(ranges.clone(), ranges.clone())
+        .map(|(x, y)| x * y)
+        .filter(|n| is_palindromic(decompose(*n)))
+        .max()
+        .unwrap();
+    solution
 }
 
 pub fn run() {
-    let n = 10133101;
-    let result = decompose(n);
-    let is_palind = is_palindromic(result);
-    println!("{:?}", is_palind);
+    let solution = solve(3);
+    println!("Solution of Problem 4 is : {:?}", solution);
 }
