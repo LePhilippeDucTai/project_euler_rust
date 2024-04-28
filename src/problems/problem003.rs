@@ -1,4 +1,10 @@
-fn prime_factors(n: u128) -> Vec<u128> {
+fn solve(value: u128) -> u128 {
+    let res: Vec<u128> = prime_factors(value);
+    let max_value: &u128 = res.iter().max().unwrap();
+    *max_value
+}
+
+pub fn prime_factors(n: u128) -> Vec<u128> {
     let mut p = n;
     let limit = (n as f64).sqrt() as u128;
     let mut k = 2;
@@ -13,12 +19,6 @@ fn prime_factors(n: u128) -> Vec<u128> {
         k += 1;
     }
     return result;
-}
-
-fn solve(value: u128) -> u128 {
-    let res: Vec<u128> = prime_factors(value);
-    let max_value: &u128 = res.iter().max().unwrap();
-    *max_value
 }
 
 pub fn run() {
