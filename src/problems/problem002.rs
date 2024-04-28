@@ -33,15 +33,24 @@ fn is_even(x: &i128) -> bool {
     x % 2 == 0
 }
 
+fn solve(limit: i128) -> i128 {
+    let iterator: Fibonacci = fibonacci_iterator();
+    let result: i128 = iterator
+        .filter(is_even)
+        .take_while(|x: &i128| *x < limit)
+        .sum();
+    result
+}
+
 pub fn run() {
     let _result: i128 = fibonacci(20);
 
     const LIMIT: i128 = 4000000;
-    let iterator: Fibonacci = fibonacci_iterator();
-    let result2: i128 = iterator
-        .filter(is_even)
-        .take_while(|x: &i128| *x < LIMIT)
-        .sum();
+    let result2 = solve(LIMIT);
 
     println!("Solution of Problem 2 is : {:?}", result2)
 }
+
+#[cfg(test)]
+#[path = "tests/problem002.rs"]
+mod test;

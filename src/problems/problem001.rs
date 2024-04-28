@@ -1,3 +1,7 @@
+#[cfg(test)]
+#[path = "tests/problem001.rs"]
+mod test;
+
 fn multiple_of_3_or_5(x: &i64) -> bool {
     (x % 5 == 0) | (x % 3 == 0)
 }
