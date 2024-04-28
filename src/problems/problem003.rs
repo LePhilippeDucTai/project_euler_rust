@@ -15,9 +15,18 @@ fn prime_factors(n: u128) -> Vec<u128> {
     return result;
 }
 
+fn solve(value: u128) -> u128 {
+    let res: Vec<u128> = prime_factors(value);
+    let max_value: &u128 = res.iter().max().unwrap();
+    *max_value
+}
+
 pub fn run() {
     const VALUE: u128 = 600851475143;
-    let res: Vec<u128> = prime_factors(VALUE);
-    let max_value = res.iter().max().unwrap();
-    println!("Solution of Problem 3 is : {:?}", max_value)
+    let result: u128 = solve(VALUE);
+    println!("Solution of Problem 3 is : {:?}", result)
 }
+
+#[cfg(test)]
+#[path = "tests/problem003.rs"]
+mod test;
