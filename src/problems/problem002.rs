@@ -48,7 +48,7 @@ pub fn run() {
     const LIMIT: i128 = 4000000;
     let result2 = solve(LIMIT);
 
-    println!("Solution of Problem 2 is : {:?}", result2)
+    println!("Solution of Problem 2 is : {result2}")
 }
 
 #[cfg(test)]

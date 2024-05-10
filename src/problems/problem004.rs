@@ -43,7 +43,7 @@ fn solve(n_digits: u32) -> i32 {
 
 pub fn run() {
     let solution = solve(3);
-    println!("Solution of Problem 4 is : {:?}", solution);
+    println!("Solution of Problem 4 is : {solution}");
 }
 
 #[cfg(test)]
