@@ -40,7 +40,7 @@ fn erastostene_sieve(n: u128) -> Vec<u128> {
         if sieve[i] {
             let prime: u128 = (i + 2) as u128;
             acc.push(prime);
-            let range = (2 * (i + 2)..m).step_by(i + 2);
+            let range = (2 * (i + 1)..m).step_by(i + 2);
             for k in range {
                 sieve[k] = false;
             }
