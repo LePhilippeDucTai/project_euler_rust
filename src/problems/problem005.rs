@@ -32,15 +32,15 @@ fn prime_factors(n: u128) -> Vec<u128> {
     return factors;
 }
 
-fn erastostene_sieve(n: usize) -> Vec<usize> {
-    let mut acc: Vec<usize> = Vec::new();
-    let m: usize = n;
+fn erastostene_sieve(n: u128) -> Vec<u128> {
+    let mut acc: Vec<u128> = Vec::new();
+    let m: usize = n as usize;
     let mut sieve: Vec<bool> = vec![true; m];
     for i in 0..m {
         if sieve[i] {
-            let prime = i + 2;
+            let prime: u128 = (i + 2) as u128;
             acc.push(prime);
-            let range = ((i + prime)..n).step_by(prime);
+            let range = (2 * (i + 2)..m).step_by(i + 2);
             for k in range {
                 sieve[k] = false;
             }
