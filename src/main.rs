@@ -7,4 +7,5 @@ fn main() {
     problems::problem004::run();
     problems::problem005::run();
     problems::problem006::run();
+    problems::problem007::run();
 }
