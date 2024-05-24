@@ -8,4 +8,5 @@ fn main() {
     problems::problem005::run();
     problems::problem006::run();
     problems::problem007::run();
+    problems::problem008::run();
 }
