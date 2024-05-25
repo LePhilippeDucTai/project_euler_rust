@@ -1,4 +1,3 @@
-#[allow(dead_code)]
 pub fn erastostene_sieve(n: u32) -> Vec<u32> {
     let mut acc: Vec<u32> = Vec::new();
     let m: usize = n as usize;
@@ -15,4 +14,12 @@ pub fn erastostene_sieve(n: u32) -> Vec<u32> {
         }
     }
     acc
+}
+
+fn triangle_number(n: u32) -> u64 {
+    (n * (n + 1) / 2) as u64
+}
+
+pub fn triangle_numbers(from: u32) -> impl Iterator<Item = u64> {
+    (from..).map(|x| triangle_number(x))
 }
