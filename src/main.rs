@@ -9,4 +9,5 @@ fn main() {
     problems::problem006::run();
     problems::problem007::run();
     problems::problem008::run();
+    problems::problem009::run();
 }
