@@ -7,4 +7,5 @@ pub mod problem006;
 pub mod problem007;
 pub mod problem008;
 pub mod problem009;
+pub mod problem010;
 pub mod utils;
