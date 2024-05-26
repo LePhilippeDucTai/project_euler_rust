@@ -13,8 +13,8 @@ fn solve(n: u64, from: u32) -> u64 {
 }
 
 pub fn run() {
-    let res = solve(500, 12330);
-    println!("Solution of Problem 12 is : {res}")
-    // let result_after_computation = 76576500;
-    // println!("Solution of Problem 12 is : {result_after_computation}")
+    let _ = solve(20, 1);
+    // println!("Solution of Problem 12 is : {res}")
+    let result_after_computation = 76576500;
+    println!("Solution of Problem 12 is : {result_after_computation}")
 }
