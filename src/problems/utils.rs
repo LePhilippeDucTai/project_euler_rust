@@ -50,6 +50,10 @@ fn prime_factors(n: u128) -> Vec<u128> {
     return factors;
 }
 
+pub fn divisors_of(n: u64) -> impl Iterator<Item = u64> {
+    (1..=(n / 2)).filter(move |k| n % (*k) == 0)
+}
+
 fn triangle_number(n: u32) -> u64 {
     (n * (n + 1) / 2) as u64
 }

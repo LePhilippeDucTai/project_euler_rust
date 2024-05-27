@@ -1,7 +1,7 @@
-use super::utils::triangle_numbers;
+use super::utils::{divisors_of, triangle_numbers};
 
 fn n_divisors(n: u64) -> usize {
-    (2..=n).filter(move |k| n % (*k) == 0).count() + 1
+    divisors_of(n).count() + 1
 }
 
 fn solve(n: u64, from: u32) -> u64 {
