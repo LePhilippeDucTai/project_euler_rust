@@ -1,4 +1,3 @@
-// use std::env;
 use std::fs;
 
 fn convert_to_u8(x: char) -> u128 {
