@@ -1,3 +1,5 @@
+use itertools::Itertools;
+
 pub fn erastostene_sieve(n: u32) -> Vec<u32> {
     let mut acc: Vec<u32> = Vec::new();
     let m: usize = n as usize;
@@ -51,13 +53,20 @@ fn prime_factors(n: u128) -> Vec<u128> {
 }
 
 pub fn divisors_of(n: u64) -> impl Iterator<Item = u64> {
-    (1..=(n / 2)).filter(move |k| n % (*k) == 0)
+    let limit = (n as f32).sqrt() as u64;
+    let divisors = (1..=limit).filter(move |k| n % (*k) == 0);
+    let more_divisors = divisors.clone().map(move |x| n / x);
+    divisors.chain(more_divisors).unique()
 }
 
-fn triangle_number(n: u32) -> u64 {
-    (n * (n + 1) / 2) as u64
+fn triangle_number(n: u64) -> u64 {
+    n * (n + 1) / 2
 }
 
-pub fn triangle_numbers(from: u32) -> impl Iterator<Item = u64> {
+pub fn triangle_numbers(from: u64) -> impl Iterator<Item = u64> {
     (from..).map(|x| triangle_number(x))
 }
+
+#[cfg(test)]
+#[path = "tests/utils.rs"]
+mod test;
