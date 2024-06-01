@@ -55,7 +55,7 @@ fn prime_factors(n: u128) -> Vec<u128> {
 pub fn divisors_of(n: u64) -> impl Iterator<Item = u64> {
     let limit = (n as f32).sqrt() as u64;
     let divisors = (1..=limit).filter(move |k| n % (*k) == 0);
-    let more_divisors = divisors.clone().map(move |x| n / x);
+    let more_divisors = divisors.clone().filter(|x| *x != 1).map(move |x| n / x);
     divisors.chain(more_divisors).unique()
 }
 
