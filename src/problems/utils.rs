@@ -1,4 +1,7 @@
 use itertools::Itertools;
+use std::cmp::PartialEq;
+use std::ops::Rem;
+use tailcall::tailcall;
 
 pub fn erastostene_sieve(n: u32) -> Vec<u32> {
     let mut acc: Vec<u32> = Vec::new();
@@ -17,9 +20,16 @@ pub fn erastostene_sieve(n: u32) -> Vec<u32> {
     }
     acc
 }
-#[allow(dead_code)]
-fn is_prime(n: &u128) -> bool {
-    let p = *n;
+
+pub fn is_even<T>(n: &T) -> bool
+where
+    T: Rem<Output = T> + PartialEq + From<u8> + Copy,
+{
+    (*n) % T::from(2) == T::from(0)
+}
+
+pub fn is_prime(n: u128) -> bool {
+    let p = n;
     if p == 2 {
         true
     } else {
@@ -31,12 +41,12 @@ fn is_prime(n: &u128) -> bool {
         !any_divided
     }
 }
-#[allow(dead_code)]
+
 fn iter_primes(n: &u128) -> impl std::iter::Iterator<Item = u128> {
-    (2..n + 1 as u128).filter(|x| is_prime(x))
+    (2..n + 1 as u128).filter(|x| is_prime(*x))
 }
-#[allow(dead_code)]
-fn prime_factors(n: u128) -> Vec<u128> {
+
+pub fn prime_factors(n: u128) -> Vec<u128> {
     let collect_factors = |acc: Vec<u128>, prime: u128| {
         let mut p = n;
         let mut new_acc: Vec<u128> = acc.clone();
@@ -65,6 +75,34 @@ fn triangle_number(n: u64) -> u64 {
 
 pub fn triangle_numbers(from: u64) -> impl Iterator<Item = u64> {
     (from..).map(|x| triangle_number(x))
+}
+
+pub struct Fibonacci {
+    curr: u128,
+    next: u128,
+}
+
+fn fibo(acc: u128, x: u128) -> (u128, u128) {
+    return ((acc + x), acc);
+}
+impl Iterator for Fibonacci {
+    type Item = u128;
+
+    fn next(&mut self) -> Option<u128> {
+        (self.next, self.curr) = fibo(self.next, self.curr);
+        let current = self.curr;
+        Some(current)
+    }
+}
+
+pub fn fibonacci() -> Fibonacci {
+    Fibonacci { curr: 0, next: 1 }
+}
+
+#[tailcall]
+pub fn pgcd(a: u64, b: u64) -> u64 {
+    let result = if b == 0 { a } else { pgcd(b, a % b) };
+    result
 }
 
 #[cfg(test)]

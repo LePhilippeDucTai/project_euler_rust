@@ -1,6 +1,6 @@
 #[test]
 fn test_solve() {
-    let result: i128 = super::solve(89);
-    let expected: i128 = 2 + 8 + 34;
+    let result: u128 = super::solve(89);
+    let expected: u128 = 2 + 8 + 34;
     assert_eq!(result, expected)
 }
