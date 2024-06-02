@@ -69,7 +69,7 @@ pub fn divisors_of(n: u64) -> impl Iterator<Item = u64> {
     divisors.chain(more_divisors).unique()
 }
 
-fn triangle_number(n: u64) -> u64 {
+pub fn triangle_number(n: u64) -> u64 {
     n * (n + 1) / 2
 }
 
