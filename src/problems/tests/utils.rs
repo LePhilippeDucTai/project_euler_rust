@@ -2,6 +2,7 @@ use itertools::Itertools;
 
 use super::fibonacci;
 use super::is_even;
+use super::mergesort;
 use super::pgcd;
 
 #[test]
@@ -54,4 +55,11 @@ fn test_gcd() {
     let result = pgcd(1332, 228);
     let expected = 12;
     assert_eq!(result, expected);
+}
+
+#[test]
+fn test_mergesort() {
+    let mut v: [i32; 6] = [4, 2, 9, 10, 2, 1];
+    let result = mergesort(&mut v);
+    assert_eq!(result, vec![1, 2, 2, 4, 9, 10]);
 }

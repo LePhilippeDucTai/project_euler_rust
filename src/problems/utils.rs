@@ -105,6 +105,43 @@ pub fn pgcd(a: u64, b: u64) -> u64 {
     result
 }
 
+fn merge_sorted(left: Vec<i32>, right: Vec<i32>) -> Vec<i32> {
+    let mut _left = left.iter();
+    let mut _right = right.iter();
+    match (_left.next(), _right.next()) {
+        (None, None) => vec![],
+        (Some(&x), None) | (None, Some(&x)) => vec![x],
+        (Some(&x), Some(&y)) => {
+            let mut result;
+            if x < y {
+                result = vec![x];
+                result.extend(merge_sorted(left[1..].to_vec(), right));
+            } else {
+                result = vec![y];
+                result.extend(merge_sorted(left, right[1..].to_vec()));
+            };
+            result
+        }
+    }
+}
+
+pub fn mergesort(v: &mut [i32]) -> Vec<i32> {
+    match v {
+        [_] | [] => v.to_vec(),
+        [x, y] => {
+            if x > y {
+                v.swap(0, 1);
+            }
+            v.to_vec()
+        }
+        _ => {
+            let mid = v.len() / 2;
+            let (left, right) = v.split_at_mut(mid);
+            merge_sorted(mergesort(left), mergesort(right))
+        }
+    }
+}
+
 #[cfg(test)]
 #[path = "tests/utils.rs"]
 mod test;
