@@ -12,3 +12,11 @@ itertools = "0.12.1"
 cached="0.51.3"
 rayon = "1.10.0"
 tailcall = "~1"
+
+
+[[bench]]
+name = "problems"
+harness = false
+
+[dev-dependencies]
+criterion = {version = "0.3", features = ["html_reports"] }

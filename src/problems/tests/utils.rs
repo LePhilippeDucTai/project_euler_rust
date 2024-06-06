@@ -2,6 +2,7 @@ use itertools::Itertools;
 
 use super::fibonacci;
 use super::is_even;
+use super::merge_sorted_2;
 use super::mergesort;
 use super::pgcd;
 
@@ -62,4 +63,12 @@ fn test_mergesort() {
     let mut v: [i32; 6] = [4, 2, 9, 10, 2, 1];
     let result = mergesort(&mut v);
     assert_eq!(result, vec![1, 2, 2, 4, 9, 10]);
+}
+
+#[test]
+fn test_merge_sorted_2() {
+    let v = vec![0, 4, 5, 5, 6, 9];
+    let w = vec![1, 2, 6, 9, 10];
+    let result = merge_sorted_2(v, w);
+    assert_eq!(result, vec![0, 1, 2, 4, 5, 5, 6, 6, 9, 9, 10])
 }

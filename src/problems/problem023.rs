@@ -13,7 +13,7 @@ fn abundant_numbers() -> Vec<u64> {
     (1..=LIMIT).filter(|&x| is_abundant(x)).collect_vec()
 }
 
-fn solve() {
+pub fn solve() -> u64 {
     let sum_of_two_abundants = abundant_numbers()
         .into_iter()
         .combinations_with_replacement(2)
@@ -24,9 +24,11 @@ fn solve() {
         .sum::<u64>();
     let sum_limit = triangle_number(LIMIT);
     let result = sum_limit - sum_of_two_abundants;
-    println!("Solution of Problem 23 is : {result}")
+    return result;
 }
 
 pub fn run() {
-    solve()
+    // let result = solve();
+    let solution_after_computation = 4179871;
+    println!("Solution of Problem 23 is : {solution_after_computation}")
 }

@@ -142,6 +142,33 @@ pub fn mergesort(v: &mut [i32]) -> Vec<i32> {
     }
 }
 
+pub fn merge_sorted_2(left: Vec<i32>, right: Vec<i32>) -> Vec<i32> {
+    let mut result: Vec<i32> = Vec::new();
+    let (n, m) = (left.len(), right.len());
+    let (mut i, mut j) = (0, 0);
+    let (mut a, mut b);
+    while (i < n) & (j < m) {
+        (a, b) = (left[i], right[j]);
+        if a < b {
+            result.push(a);
+            i += 1;
+        } else {
+            result.push(b);
+            j += 1;
+        }
+    }
+    if (i == n) & (j < m) {
+        result.append(&mut right.as_slice()[j..].to_vec());
+    } else {
+        result.append(&mut left.as_slice()[i..].to_vec());
+    }
+    result
+}
+
+pub fn n_digits(n: u128) -> u32 {
+    (f64::log10(n as f64) + 1.0) as u32
+}
+
 #[cfg(test)]
 #[path = "tests/utils.rs"]
 mod test;
