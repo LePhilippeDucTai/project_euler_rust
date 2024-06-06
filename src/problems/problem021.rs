@@ -13,7 +13,7 @@ fn solved(n: u64) -> u64 {
         .filter(|v: &Vec<u64>| amicable(v[0], v[1]))
         .flatten()
         .sum();
-    return amicables;
+    amicables
 }
 
 pub fn run() {

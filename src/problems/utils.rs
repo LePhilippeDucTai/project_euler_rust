@@ -44,7 +44,7 @@ pub fn is_prime(n: u128) -> bool {
 }
 
 fn iter_primes(n: &u128) -> impl std::iter::Iterator<Item = u128> {
-    (2..n + 1 as u128).filter(|x| is_prime(*x))
+    (2..n + 1_u128).filter(|x| is_prime(*x))
 }
 
 pub fn prime_factors(n: u128) -> Vec<u128> {
@@ -53,14 +53,14 @@ pub fn prime_factors(n: u128) -> Vec<u128> {
         let mut new_acc: Vec<u128> = acc.clone();
         while p % prime == 0 {
             new_acc.push(prime);
-            p = p / prime;
+            p /= prime;
         }
-        return new_acc;
+        new_acc
     };
 
     let v0: Vec<u128> = Vec::new();
-    let factors = iter_primes(&n).fold(v0, collect_factors);
-    return factors;
+    
+    iter_primes(&n).fold(v0, collect_factors)
 }
 
 pub fn divisors_of(n: u64) -> impl Iterator<Item = u64> {
@@ -75,7 +75,7 @@ pub fn triangle_number(n: u64) -> u64 {
 }
 
 pub fn triangle_numbers(from: u64) -> impl Iterator<Item = u64> {
-    (from..).map(|x| triangle_number(x))
+    (from..).map(triangle_number)
 }
 
 pub struct Fibonacci {
@@ -84,7 +84,7 @@ pub struct Fibonacci {
 }
 
 fn fibo(acc: u128, x: u128) -> (u128, u128) {
-    return ((acc + x), acc);
+    ((acc + x), acc)
 }
 impl Iterator for Fibonacci {
     type Item = u128;
@@ -102,8 +102,8 @@ pub fn fibonacci() -> Fibonacci {
 
 #[tailcall]
 pub fn pgcd(a: u64, b: u64) -> u64 {
-    let result = if b == 0 { a } else { pgcd(b, a % b) };
-    result
+    
+    if b == 0 { a } else { pgcd(b, a % b) }
 }
 
 #[cached]

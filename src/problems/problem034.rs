@@ -9,7 +9,7 @@ fn digits(n: u32) -> Vec<u32> {
     let mut m = n;
     while m > 0 {
         dig.push(m % 10);
-        m = m / 10;
+        m /= 10;
     }
     dig.reverse();
     dig

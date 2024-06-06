@@ -1,6 +1,6 @@
 fn collatz(acc: &mut u64, _: u64) -> Option<u64> {
     if *acc % 2 == 0 {
-        *acc = *acc / 2;
+        *acc /= 2;
     } else {
         *acc = 3 * *acc + 1
     }

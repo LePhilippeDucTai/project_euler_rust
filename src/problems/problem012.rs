@@ -5,11 +5,9 @@ fn n_divisors(n: u64) -> usize {
 }
 
 fn solve(n: u64, from: u64) -> u64 {
-    let result = triangle_numbers(from)
-        .filter(|v| n_divisors(*v) >= n as usize)
-        .next()
-        .expect("Triangle number not found.");
-    result
+    
+    triangle_numbers(from).find(|v| n_divisors(*v) >= n as usize)
+        .expect("Triangle number not found.")
 }
 
 pub fn run() {

@@ -6,7 +6,7 @@ fn recursive_decompose(acc: Vec<i32>, p: i32, k: u32) -> Vec<i32> {
         new_acc.push(p);
         new_acc
     } else {
-        let tens: i32 = (10 as i32).pow(k);
+        let tens: i32 = 10_i32.pow(k);
         let i = p / tens;
         let new_p = p - i * tens;
         let mut new_acc: Vec<i32> = acc.clone();

@@ -5,7 +5,7 @@ use itertools::Itertools;
 const LIMIT: u64 = 28123;
 
 fn is_abundant(n: u64) -> bool {
-    let divisors_sum = divisors_of(n as u64).sum::<u64>();
+    let divisors_sum = divisors_of(n).sum::<u64>();
     divisors_sum > n
 }
 
@@ -23,8 +23,8 @@ pub fn solve() -> u64 {
         .unique()
         .sum();
     let sum_limit = triangle_number(LIMIT);
-    let result = sum_limit - sum_of_two_abundants;
-    return result;
+    
+    sum_limit - sum_of_two_abundants
 }
 
 pub fn run() {

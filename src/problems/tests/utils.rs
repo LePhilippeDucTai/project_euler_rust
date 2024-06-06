@@ -38,9 +38,9 @@ fn test_is_even() {
     let b: i64 = 2103;
     let c: i128 = 58104592;
 
-    assert_eq!(is_even(&a), true);
-    assert_eq!(is_even(&b), false);
-    assert_eq!(is_even(&c), true);
+    assert!(is_even(&a));
+    assert!(!is_even(&b));
+    assert!(is_even(&c));
 }
 
 #[test]
