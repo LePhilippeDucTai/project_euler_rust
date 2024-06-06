@@ -13,12 +13,12 @@ pub fn prime_factors(n: u128) -> Vec<u128> {
         if p % k == 0 {
             result.push(k);
             while p % k == 0 {
-                p = p / k;
+                p /= k;
             }
         }
         k += 1;
     }
-    return result;
+    result
 }
 
 pub fn run() {

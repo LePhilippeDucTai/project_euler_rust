@@ -9,7 +9,6 @@ fn read_input_file_to_list(file_path: &str) -> Vec<u128> {
         .expect("File input error.")
         .replace("\n", "")
         .chars()
-        .into_iter()
         .map(convert_to_u8)
         .collect()
 }

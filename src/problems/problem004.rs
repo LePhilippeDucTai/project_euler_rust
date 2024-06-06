@@ -25,11 +25,11 @@ fn is_palindromic(n: i32) -> bool {
     let arr = decompose(n);
     let mut reversed = arr.clone();
     reversed.reverse();
-    return reversed == arr;
+    reversed == arr
 }
 
 fn solve(n_digits: u32) -> i32 {
-    let tens = (10 as i32).pow(n_digits - 1);
+    let tens = (10i32).pow(n_digits - 1);
     let limit = tens * 10;
     let ranges = tens..limit;
     let solution = ranges
