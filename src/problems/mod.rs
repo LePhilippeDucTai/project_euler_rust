@@ -11,6 +11,7 @@ pub mod problem010;
 pub mod problem012;
 pub mod problem013;
 pub mod problem014;
+pub mod problem016;
 pub mod problem021;
 pub mod problem023;
 pub mod problem034;

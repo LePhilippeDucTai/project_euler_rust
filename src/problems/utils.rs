@@ -1,3 +1,4 @@
+use cached::proc_macro::cached;
 use itertools::Itertools;
 use std::cmp::PartialEq;
 use std::ops::Rem;
@@ -105,6 +106,18 @@ pub fn pgcd(a: u64, b: u64) -> u64 {
     result
 }
 
+#[cached]
+pub fn factorial(n: u32) -> u128 {
+    #[tailcall]
+    fn factorial_rec(acc: u128, p: u32) -> u128 {
+        if p == 0 {
+            acc
+        } else {
+            factorial_rec(acc * (p as u128), p - 1)
+        }
+    }
+    factorial_rec(1, n)
+}
 fn merge_sorted(left: Vec<i32>, right: Vec<i32>) -> Vec<i32> {
     let mut _left = left.iter();
     let mut _right = right.iter();
