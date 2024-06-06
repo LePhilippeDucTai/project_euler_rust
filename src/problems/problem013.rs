@@ -17,7 +17,7 @@ pub fn run() {
     let binding = read_input_file(file_path);
     let base: u128 = 10;
     let k: u64 = 5;
-    let exp: u128 = base.pow(k as u32 + 2);
+    let exp = base.pow(k as u32 + 2);
     let input = binding
         .lines()
         .map(|x| {
@@ -25,8 +25,7 @@ pub fn run() {
                 .parse::<u128>()
                 .unwrap()
         })
-        .reduce(|acc, x| (acc + x))
-        .unwrap()
+        .sum::<u128>()
         .div(exp);
     println!("Solution of Problem 13 is : {input}")
 }

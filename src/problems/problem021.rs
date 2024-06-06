@@ -8,11 +8,11 @@ fn amicable(a: u64, b: u64) -> bool {
 fn solved(n: u64) -> u64 {
     use rayon::prelude::*;
     let grid = (220..n).combinations(2);
-    let amicables = grid
+    let amicables: u64 = grid
         .par_bridge()
         .filter(|v: &Vec<u64>| amicable(v[0], v[1]))
         .flatten()
-        .sum::<u64>();
+        .sum();
     return amicables;
 }
 

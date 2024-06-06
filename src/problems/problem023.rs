@@ -14,14 +14,14 @@ fn abundant_numbers() -> Vec<u64> {
 }
 
 pub fn solve() -> u64 {
-    let sum_of_two_abundants = abundant_numbers()
+    let sum_of_two_abundants: u64 = abundant_numbers()
         .into_iter()
         .combinations_with_replacement(2)
         .filter(|v| (v[0] <= LIMIT) & (v[1] <= LIMIT))
         .map(|x| x.into_iter().sum::<u64>())
         .filter(|x| (*x) <= LIMIT)
         .unique()
-        .sum::<u64>();
+        .sum();
     let sum_limit = triangle_number(LIMIT);
     let result = sum_limit - sum_of_two_abundants;
     return result;

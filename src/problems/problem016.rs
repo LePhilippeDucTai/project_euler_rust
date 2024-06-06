@@ -1,10 +1,7 @@
 use num_bigint::BigUint;
 
 fn digits_sum(n: BigUint) -> u32 {
-    n.to_string()
-        .chars()
-        .map(|x| x.to_digit(10).unwrap())
-        .sum::<u32>()
+    n.to_string().chars().map(|x| x.to_digit(10).unwrap()).sum()
 }
 
 fn solve() {
