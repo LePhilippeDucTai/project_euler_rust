@@ -19,11 +19,11 @@ pub fn solve() -> u64 {
         .combinations_with_replacement(2)
         .filter(|v| (v[0] <= LIMIT) & (v[1] <= LIMIT))
         .map(|x| x.into_iter().sum::<u64>())
-        .filter(|x| (*x) <= LIMIT)
+        .filter(|&x| x <= LIMIT)
         .unique()
         .sum();
     let sum_limit = triangle_number(LIMIT);
-    
+
     sum_limit - sum_of_two_abundants
 }
 
