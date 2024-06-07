@@ -1,11 +1,5 @@
-use std::{
-    fs::{self},
-    ops::Div,
-};
-
-fn read_input_file(file_path: &str) -> String {
-    fs::read_to_string(file_path).expect("File input error.")
-}
+use super::utils::read_input_file;
+use std::ops::Div;
 
 fn first_characters(s: &str, n: usize) -> String {
     let last_n_chars = s.chars().take(n).collect::<String>();

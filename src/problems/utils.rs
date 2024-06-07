@@ -1,6 +1,7 @@
 use cached::proc_macro::cached;
 use itertools::Itertools;
 use std::cmp::PartialEq;
+use std::fs;
 use std::ops::Rem;
 use tailcall::tailcall;
 
@@ -59,7 +60,7 @@ pub fn prime_factors(n: u128) -> Vec<u128> {
     };
 
     let v0: Vec<u128> = Vec::new();
-    
+
     iter_primes(&n).fold(v0, collect_factors)
 }
 
@@ -102,8 +103,11 @@ pub fn fibonacci() -> Fibonacci {
 
 #[tailcall]
 pub fn pgcd(a: u64, b: u64) -> u64 {
-    
-    if b == 0 { a } else { pgcd(b, a % b) }
+    if b == 0 {
+        a
+    } else {
+        pgcd(b, a % b)
+    }
 }
 
 #[cached]
@@ -180,6 +184,10 @@ pub fn merge_sorted_2(left: Vec<i32>, right: Vec<i32>) -> Vec<i32> {
 
 pub fn n_digits(n: u128) -> u32 {
     (f64::log10(n as f64) + 1.0) as u32
+}
+
+pub fn read_input_file(file_path: &str) -> String {
+    fs::read_to_string(file_path).expect("File input error.")
 }
 
 #[cfg(test)]
