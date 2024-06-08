@@ -22,7 +22,7 @@ fn window_max(v: Vec<u32>) -> Vec<u32> {
         .collect_vec()
 }
 
-fn vec_add(v: Vec<u32>, w: Vec<u32>) -> Vec<u32> {
+fn vec_add<T: std::ops::Add>(v: Vec<T>, w: Vec<T>) -> Vec<<T as std::ops::Add>::Output> {
     zip(v, w).map(|(a, b)| a + b).collect_vec()
 }
 
@@ -31,14 +31,19 @@ fn max_path_sum(last: Vec<u32>, next: Vec<u32>) -> Vec<u32> {
     vec_add(max_choices, next)
 }
 
-fn solve(filepath: &str) {
+pub fn solve(filepath: &str) -> u32 {
     let input_file = read_input_file(filepath);
-    let argument = prepare_input(input_file.as_str());
-    let result = argument.into_iter().reduce(max_path_sum).unwrap()[0];
-    println!("Solution of Problem 18 is : {result}")
+    let pyramid = prepare_input(input_file.as_str());
+    let result = pyramid.into_iter().reduce(max_path_sum).unwrap()[0];
+    return result;
 }
 
 pub fn run() {
     let filepath = "data/problems/problem018/input.txt";
-    solve(filepath)
+    let result = solve(filepath);
+    println!("Solution of Problem 18 is : {result}")
 }
+
+#[cfg(test)]
+#[path = "tests/problem018.rs"]
+mod test;

@@ -14,9 +14,7 @@ fn read_input_file_to_list(file_path: &str) -> Vec<u128> {
 }
 
 fn window_product(v: Vec<u128>, n: usize) -> Vec<u128> {
-    v.windows(n)
-        .map(|x| x.iter().product())
-        .collect()
+    v.windows(n).map(|x| x.iter().product()).collect()
 }
 
 fn solve(numbers: Vec<u128>, n: usize) -> u128 {
@@ -25,7 +23,7 @@ fn solve(numbers: Vec<u128>, n: usize) -> u128 {
 
 fn read_input() -> Vec<u128> {
     let file_path = "data/problems/problem008/input.txt";
-    
+
     read_input_file_to_list(file_path)
 }
 pub fn run() {
