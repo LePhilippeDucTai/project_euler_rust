@@ -66,3 +66,7 @@ pub fn run() {
     let result = solve(from);
     println!("Solution of Problem 045 is : {result}");
 }
+
+#[cfg(test)]
+#[path = "tests/problem045.rs"]
+mod test;
