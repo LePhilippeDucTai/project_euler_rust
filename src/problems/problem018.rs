@@ -34,8 +34,8 @@ fn max_path_sum(last: Vec<u32>, next: Vec<u32>) -> Vec<u32> {
 pub fn solve(filepath: &str) -> u32 {
     let input_file = read_input_file(filepath);
     let pyramid = prepare_input(input_file.as_str());
-    let result = pyramid.into_iter().reduce(max_path_sum).unwrap()[0];
-    return result;
+    
+    pyramid.into_iter().reduce(max_path_sum).unwrap()[0]
 }
 
 pub fn run() {

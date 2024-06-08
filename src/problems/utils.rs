@@ -71,12 +71,12 @@ pub fn divisors_of(n: u64) -> impl Iterator<Item = u64> {
     divisors.chain(more_divisors).unique()
 }
 
-pub fn triangle_number(n: u64) -> u64 {
+pub fn triangle(n: &u64) -> u64 {
     n * (n + 1) / 2
 }
 
 pub fn triangle_numbers(from: u64) -> impl Iterator<Item = u64> {
-    (from..).map(triangle_number)
+    (from..).map(|x| triangle(&x))
 }
 
 pub struct Fibonacci {

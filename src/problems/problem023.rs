@@ -1,5 +1,5 @@
 use super::utils::divisors_of;
-use super::utils::triangle_number;
+use super::utils::triangle;
 use itertools::Itertools;
 
 const LIMIT: u64 = 28123;
@@ -22,7 +22,7 @@ pub fn solve() -> u64 {
         .filter(|&x| x <= LIMIT)
         .unique()
         .sum();
-    let sum_limit = triangle_number(LIMIT);
+    let sum_limit = triangle(&LIMIT);
 
     sum_limit - sum_of_two_abundants
 }
