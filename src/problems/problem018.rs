@@ -13,7 +13,7 @@ fn window_max(v: Vec<u32>) -> Vec<u32> {
 }
 
 fn vec_add(v: Vec<u32>, w: Vec<u32>) -> Vec<u32> {
-    let result = zip(v, w).map(|x| x.0 + x.1).collect_vec();
+    let result = zip(v, w).map(|(a, b)| a + b).collect_vec();
     result
 }
 
