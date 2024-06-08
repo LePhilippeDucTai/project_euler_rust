@@ -29,7 +29,7 @@ fn read_input() -> Vec<u128> {
 pub fn run() {
     let numbers = read_input();
     let result = solve(numbers, 13);
-    println!("Solution of Problem 8 is : {result}");
+    println!("Solution of Problem 008 is : {result}");
 }
 
 #[cfg(test)]

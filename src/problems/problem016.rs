@@ -9,7 +9,7 @@ fn solve() {
     let exp = 1000u32;
     let x = base.pow(exp);
     let result = digits_sum(x);
-    println!("Solution of Problem 16 is : {result}")
+    println!("Solution of Problem 016 is : {result}")
 }
 
 pub fn run() {

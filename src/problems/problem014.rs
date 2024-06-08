@@ -27,5 +27,5 @@ fn solve(n: u64, start: u64) -> u64 {
 pub fn run() {
     let n = 1_000_000;
     let result = solve(n, 800_000);
-    println!("Solution of Problem 14 is : {result}")
+    println!("Solution of Problem 014 is : {result}")
 }

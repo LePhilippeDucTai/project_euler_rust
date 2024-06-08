@@ -14,5 +14,5 @@ fn solve(n_max: i64) -> i64 {
 
 pub fn run() {
     let result = solve(1000);
-    println!("Solution of Problem 1 is : {result}");
+    println!("Solution of Problem 001 is : {result}");
 }

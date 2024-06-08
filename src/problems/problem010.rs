@@ -8,5 +8,5 @@ fn solve(n: u32) -> u128 {
 
 pub fn run() {
     let result = solve(2_000_000);
-    println!("Solution of Problem 10 is : {result}");
+    println!("Solution of Problem 010 is : {result}");
 }

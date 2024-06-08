@@ -30,5 +30,5 @@ pub fn solve() -> u64 {
 pub fn run() {
     // let result = solve();
     let solution_after_computation = 4179871;
-    println!("Solution of Problem 23 is : {solution_after_computation}")
+    println!("Solution of Problem 023 is : {solution_after_computation}")
 }

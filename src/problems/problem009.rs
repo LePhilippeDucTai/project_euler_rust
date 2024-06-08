@@ -5,9 +5,10 @@ fn f(n: i32, a: i32, b: i32) -> i32 {
 
 fn find_pythagorean(a: i32, n: i32, lim_b: i32) -> Option<(i32, i32, i32)> {
     let range_b = a..lim_b;
-    
+
     range_b
-        .map(|b| (a, b, f(n, a, b))).find(|t: &(i32, i32, i32)| t.2 == 0)
+        .map(|b| (a, b, f(n, a, b)))
+        .find(|t: &(i32, i32, i32)| t.2 == 0)
 }
 
 fn solve(n: i32) -> i32 {
@@ -23,7 +24,7 @@ fn solve(n: i32) -> i32 {
 
 pub fn run() {
     let result = solve(1000);
-    println!("Solution of Problem 9 is : {result}")
+    println!("Solution of Problem 009 is : {result}")
 }
 
 #[cfg(test)]

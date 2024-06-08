@@ -24,7 +24,7 @@ pub fn prime_factors(n: u128) -> Vec<u128> {
 pub fn run() {
     const VALUE: u128 = 600851475143;
     let result: u128 = solve(VALUE);
-    println!("Solution of Problem 3 is : {result}")
+    println!("Solution of Problem 003 is : {result}")
 }
 
 #[cfg(test)]

@@ -21,5 +21,5 @@ pub fn run() {
         })
         .sum::<u128>()
         .div(exp);
-    println!("Solution of Problem 13 is : {input}")
+    println!("Solution of Problem 013 is : {input}")
 }

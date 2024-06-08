@@ -41,7 +41,7 @@ pub fn solve(filepath: &str) -> u32 {
 pub fn run() {
     let filepath = "data/problems/problem018/input.txt";
     let result = solve(filepath);
-    println!("Solution of Problem 18 is : {result}")
+    println!("Solution of Problem 018 is : {result}")
 }
 
 #[cfg(test)]

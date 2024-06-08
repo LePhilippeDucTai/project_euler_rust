@@ -20,7 +20,7 @@ pub fn run() {
     let _ = solved(300);
     // println!("{solution}");
     let solution_after_computation = 31626;
-    println!("Solution of Problem 21 is : {solution_after_computation}")
+    println!("Solution of Problem 021 is : {solution_after_computation}")
 }
 
 #[cfg(test)]

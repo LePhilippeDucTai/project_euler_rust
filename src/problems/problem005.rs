@@ -19,7 +19,7 @@ fn solve(n: u64) -> u64 {
 pub fn run() {
     let n = 20;
     let problem = solve(n);
-    println!("Solution of Problem 5 is : {problem:?}")
+    println!("Solution of Problem 005 is : {problem:?}")
 }
 
 #[cfg(test)]

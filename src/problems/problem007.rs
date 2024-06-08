@@ -14,7 +14,7 @@ fn solve(n: u32) -> u32 {
 pub fn run() {
     let n = 10001;
     let result = solve(n);
-    println!("Solution of Problem 7 is : {result}")
+    println!("Solution of Problem 007 is : {result}")
 }
 
 #[cfg(test)]

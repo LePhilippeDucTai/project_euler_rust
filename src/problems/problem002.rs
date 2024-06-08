@@ -12,7 +12,7 @@ fn solve(limit: u128) -> u128 {
 pub fn run() {
     const LIMIT: u128 = 4000000;
     let result2 = solve(LIMIT);
-    println!("Solution of Problem 2 is : {result2}")
+    println!("Solution of Problem 002 is : {result2}")
 }
 
 #[cfg(test)]
