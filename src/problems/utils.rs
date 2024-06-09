@@ -5,14 +5,15 @@ use std::fs;
 use std::ops::Rem;
 use tailcall::tailcall;
 
-pub fn erastostene_sieve(n: u32) -> Vec<u32> {
-    let mut acc: Vec<u32> = Vec::new();
+#[cached]
+pub fn erastostene_sieve(n: u128) -> Vec<u128> {
+    let mut acc: Vec<u128> = Vec::new();
     let m: usize = n as usize;
     let mut sieve: Vec<bool> = vec![true; m];
-    for i in 0..m {
+    for i in 0..(m - 1) {
         if sieve[i] {
             let step = i + 2;
-            let prime: u32 = step as u32;
+            let prime: u128 = step as u128;
             acc.push(prime);
             let range = ((2 * (step - 1))..m).step_by(step);
             for k in range {
@@ -30,6 +31,7 @@ where
     (*n) % T::from(2) == T::from(0)
 }
 
+#[cached]
 pub fn is_prime(n: u128) -> bool {
     let p = n;
     if p == 2 {
@@ -44,10 +46,6 @@ pub fn is_prime(n: u128) -> bool {
     }
 }
 
-fn iter_primes(n: &u128) -> impl std::iter::Iterator<Item = u128> {
-    (2..n + 1_u128).filter(|x| is_prime(*x))
-}
-
 pub fn prime_factors(n: u128) -> Vec<u128> {
     let collect_factors = |acc: Vec<u128>, prime: u128| {
         let mut p = n;
@@ -58,10 +56,8 @@ pub fn prime_factors(n: u128) -> Vec<u128> {
         }
         new_acc
     };
-
     let v0: Vec<u128> = Vec::new();
-
-    iter_primes(&n).fold(v0, collect_factors)
+    erastostene_sieve(n).into_iter().fold(v0, collect_factors)
 }
 
 pub fn divisors_of(n: u64) -> impl Iterator<Item = u64> {

@@ -1,6 +1,6 @@
 use super::utils::erastostene_sieve;
 
-fn solve(n: u32) -> u32 {
+fn solve(n: u128) -> u128 {
     let mut m = n;
     let mut primes = erastostene_sieve(n);
     let lim = m as usize;

@@ -1,10 +1,27 @@
 use itertools::Itertools;
 
+use crate::problems::utils::erastostene_sieve;
+
 use super::fibonacci;
 use super::is_even;
 use super::merge_sorted_2;
 use super::mergesort;
 use super::pgcd;
+
+#[test]
+fn test_erastostene_sieve() {
+    let primes = erastostene_sieve(10);
+    let result = [2, 3, 5, 7];
+    assert_eq!(primes, result);
+
+    let primes = erastostene_sieve(11);
+    let result = [2, 3, 5, 7, 11];
+    assert_eq!(primes, result);
+
+    let primes = erastostene_sieve(31);
+    let result = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31];
+    assert_eq!(primes, result);
+}
 
 #[test]
 fn test_divisors_of() {
