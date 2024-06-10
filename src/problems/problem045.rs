@@ -1,21 +1,10 @@
+use super::utils::quadratic_solver;
+
 fn triangle(n: &i64) -> i64 {
     n * (n + 1) / 2
 }
 
-fn quadratic_solver(a: f64, b: f64, c: f64) -> Option<(f64, f64)> {
-    let delta = b.powi(2) - 4.0 * a * c;
-    if delta < 0.0 {
-        return None;
-    }
-    let (x1, x2) = (
-        (-b - delta.sqrt()) / (2.0 * a),
-        (-b + delta.sqrt()) / (2.0 * a),
-    );
-
-    Some((x1.min(x2), x1.max(x2)))
-}
-
-fn select_integer(x: f64, n: i64) -> Option<i64> {
+pub fn select_integer(x: f64, n: i64) -> Option<i64> {
     if x.fract() == 0.0 {
         if (0.0 < x) & (x < n as f64) {
             return Some(x as i64);

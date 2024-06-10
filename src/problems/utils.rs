@@ -186,6 +186,19 @@ pub fn read_input_file(file_path: &str) -> String {
     fs::read_to_string(file_path).expect("File input error.")
 }
 
+pub fn quadratic_solver(a: f64, b: f64, c: f64) -> Option<(f64, f64)> {
+    let delta = b.powi(2) - 4.0 * a * c;
+    if delta < 0.0 {
+        return None;
+    }
+    let (x1, x2) = (
+        (-b - delta.sqrt()) / (2.0 * a),
+        (-b + delta.sqrt()) / (2.0 * a),
+    );
+
+    Some((x1.min(x2), x1.max(x2)))
+}
+
 #[cfg(test)]
 #[path = "tests/utils.rs"]
 mod test;
