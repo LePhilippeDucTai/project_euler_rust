@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use itertools::{enumerate, Itertools};
+use itertools::Itertools;
 
 use super::utils::{quadratic_solver, read_input_file};
 
@@ -32,7 +32,7 @@ fn select_integer(x: f64) -> Option<i64> {
     if (x.fract() == 0.0) & (x > 0.0) {
         return Some(x as i64);
     }
-    return None;
+    None
 }
 
 fn words_to_values(words: Vec<String>, dict: HashMap<char, u32>) -> Vec<u32> {
@@ -46,24 +46,24 @@ fn is_triangle(x: f64) -> bool {
     let a = 1.0;
     let b = 1.0;
     let c = -2.0 * x;
-    let solution = if let Some((x1, x2)) = quadratic_solver(a, b, c) {
+
+    if let Some((x1, x2)) = quadratic_solver(a, b, c) {
         match (select_integer(x1), select_integer(x2)) {
             (None, None) => false,
             _ => true,
         }
     } else {
-        return false;
-    };
-    solution
+        false
+    }
 }
 
 fn solve(words: Vec<String>) -> usize {
     let dict = alphabet_values();
-    let result = words_to_values(words, dict)
+
+    words_to_values(words, dict)
         .into_iter()
         .filter(|x| is_triangle(*x as f64))
-        .count();
-    result
+        .count()
 }
 
 pub fn run() {
