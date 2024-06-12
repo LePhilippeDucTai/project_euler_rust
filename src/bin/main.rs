@@ -1,6 +1,7 @@
-pub mod problems;
-
+use project_euler_rust::problems;
 fn main() {
+    problems::problem001::run();
+    problems::problem002::run();
     problems::problem001::run();
     problems::problem002::run();
     problems::problem003::run();
@@ -18,6 +19,7 @@ fn main() {
     problems::problem018::run();
     problems::problem021::run();
     problems::problem023::run();
+    problems::problem028::run();
     problems::problem034::run();
     problems::problem042::run();
     problems::problem045::run();
