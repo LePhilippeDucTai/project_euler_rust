@@ -34,15 +34,15 @@ where
 #[cached]
 pub fn is_prime(n: u128) -> bool {
     let p = n;
-    if p == 2 {
-        true
-    } else {
-        if p % 2 == 0 {
-            return false;
+    match p {
+        1 => false,
+        2 | 3 => true,
+        k if k % 2 == 0 => false,
+        _ => {
+            let limit = (p as f32).sqrt() as u128;
+            let any_divided: bool = (3..=limit).step_by(2).any(|x| (p % x) == 0);
+            !any_divided
         }
-        let limit = (p as f32).sqrt() as u128;
-        let any_divided: bool = (2..limit + 1).any(|x| (p % x) == 0);
-        !any_divided
     }
 }
 

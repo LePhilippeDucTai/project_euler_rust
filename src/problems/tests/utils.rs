@@ -1,6 +1,7 @@
 use itertools::Itertools;
 
 use crate::problems::utils::erastostene_sieve;
+use crate::problems::utils::is_prime;
 
 use super::fibonacci;
 use super::is_even;
@@ -88,4 +89,22 @@ fn test_merge_sorted_2() {
     let w = vec![1, 2, 6, 9, 10];
     let result = merge_sorted_2(v, w);
     assert_eq!(result, vec![0, 1, 2, 4, 5, 5, 6, 6, 9, 9, 10])
+}
+
+#[test]
+fn test_is_prime() {
+    let mut n = [2, 3, 5, 7, 11, 19, 23].into_iter();
+    let actual = n.all(|x| is_prime(x));
+    let expected = true;
+    assert_eq!(actual, expected);
+
+    let mut n = [513, 321, 221, 7, 11, 19, 21].into_iter();
+    let actual = n.all(|x| is_prime(x));
+    let expected = false;
+    assert_eq!(actual, expected);
+
+    let mut n = [321, 221, 4, 75, 199, 21].into_iter();
+    let actual = n.any(|x| is_prime(x));
+    let expected = true;
+    assert_eq!(actual, expected);
 }
