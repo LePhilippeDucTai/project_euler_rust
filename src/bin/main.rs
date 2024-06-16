@@ -24,5 +24,6 @@ fn main() {
     problems::problem042::run();
     problems::problem045::run();
     problems::problem047::run();
+    problems::problem059::run();
     problems::problem067::run();
 }
