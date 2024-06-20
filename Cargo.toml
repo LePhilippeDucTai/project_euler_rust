@@ -15,6 +15,7 @@ rayon = "1.10.0"
 tailcall = "~1"
 num-bigint = "0.4.5"
 ascii = "1.1.0"
+ascii_converter = "0.3.0"
 
 [[bench]]
 name = "problems"
