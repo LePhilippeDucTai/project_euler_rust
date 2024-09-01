@@ -98,7 +98,11 @@ pub fn fibonacci() -> Fibonacci {
 }
 
 #[tailcall]
+#[cached]
 pub fn pgcd(a: u64, b: u64) -> u64 {
+    if a < b {
+        pgcd(b, a)
+    }
     if b == 0 {
         a
     } else {
