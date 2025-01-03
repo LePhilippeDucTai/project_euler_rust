@@ -7,19 +7,25 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ndarray = "=0.15.6"
+ndarray = "0.16.1"
 ndarray-linalg = { version = "0.16", features = ["intel-mkl-static"] }
-itertools = "0.12.1"
-cached="0.51.3"
+itertools = "0.14.0"
+cached="0.54.0"
 rayon = "1.10.0"
 tailcall = "~1"
 num-bigint = "0.4.5"
 ascii = "1.1.0"
 ascii_converter = "0.3.0"
+primes = "0.4.0"
+
 
 [[bench]]
 name = "problems"
 harness = false
 
 [dev-dependencies]
-criterion = {version = "0.3", features = ["html_reports"] }
+criterion = {version = "0.5.1", features = ["html_reports"] }
+
+[[bin]]
+name="problems"
+path = "src/bin/problems"

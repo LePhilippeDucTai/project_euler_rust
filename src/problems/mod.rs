@@ -22,5 +22,5 @@ pub mod problem045;
 pub mod problem047;
 pub mod problem059;
 pub mod problem067;
-pub mod problem069;
+
 pub mod utils;
